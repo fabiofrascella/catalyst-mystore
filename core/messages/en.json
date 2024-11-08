@@ -248,7 +248,7 @@
   "Cart": {
     "title": "Cart",
     "heading": "Your cart",
-    "empty": "Your cart is empty",
+    "empty": "Your cart is empty now",
     "emptyDetails": "Looks like you have not added anything to your cart. Go ahead & explore top categories",
     "proceedToCheckout": "Proceed to checkout",
     "loading": "Loading...",
