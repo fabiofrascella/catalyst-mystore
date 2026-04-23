@@ -5,7 +5,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import { writeBuildConfig } from './build-config/writer';
 import { client } from './client';
 import { graphql } from './client/graphql';
-import { cspHeader } from './lib/content-security-policy';
+import { buildCspHeader } from './lib/content-security-policy';
 
 const withNextIntl = createNextIntlPlugin({
   experimental: {
@@ -83,7 +83,7 @@ export default async (): Promise<NextConfig> => {
           headers: [
             {
               key: 'Content-Security-Policy',
-              value: cspHeader.replace(/\n/g, ''),
+              value: buildCspHeader(settings.urls.checkoutUrl).replace(/\n/g, ''),
             },
             ...cdnLinks,
           ],

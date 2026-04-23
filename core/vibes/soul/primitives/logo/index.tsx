@@ -11,6 +11,7 @@ interface Props {
   href: string;
   width: number;
   height: number;
+  priority?: boolean;
 }
 
 // eslint-disable-next-line valid-jsdoc
@@ -26,7 +27,7 @@ interface Props {
  * }
  * ```
  */
-export function Logo({ className, logo: streamableLogo, href, width, height, label }: Props) {
+export function Logo({ className, logo: streamableLogo, href, width, height, label, priority = true }: Props) {
   return (
     <Stream
       fallback={<div className="h-6 w-16 animate-pulse rounded-md bg-contrast-100" />}
@@ -45,9 +46,11 @@ export function Logo({ className, logo: streamableLogo, href, width, height, lab
           {typeof logo === 'object' && logo !== null && logo.src !== '' ? (
             <Image
               alt={logo.alt}
-              className="h-auto w-full object-contain object-left"
+              className="object-contain object-left"
               height={height}
+              priority={priority}
               src={logo.src}
+              style={{ width: 'auto', height: 'auto' }}
               width={width}
             />
           ) : (
